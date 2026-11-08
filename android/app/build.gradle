@@ -1,0 +1,31 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.letterforge.game"
+    compileSdk 36
+    ndkVersion flutter.ndkVersion
+
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    kotlinOptions { jvmTarget = "17" }
+
+    defaultConfig {
+        applicationId "com.letterforge.game"
+        minSdk 23
+        targetSdk 36
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            // For local testing only. Replace with the secure upload key setup in RELEASE.md.
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+flutter { source "../.." }
