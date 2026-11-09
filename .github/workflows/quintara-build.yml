@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -13,17 +13,14 @@ jobs:
     steps:
       - name: Get source code
         uses: actions/checkout@v4
-        with:
-          ref: quintara-update
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Extract Quintara update
+        run: |
+          unzip -q Quintara-1.1.0-source-update.zip -d /tmp/quintara-update
 
       - name: Apply Quintara update
         run: |
-          python apply_quintara_update.py
+          python /tmp/quintara-update/apply_quintara_update.py
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -35,7 +32,7 @@ jobs:
           flutter pub get
           flutter build apk --release
 
-      - name: Upload APK
+      - name: Save APK
         uses: actions/upload-artifact@v4
         with:
           name: Quintara-APK
