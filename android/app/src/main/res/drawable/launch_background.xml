@@ -1,1 +1,10 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="#101719"/><item android:gravity="center"><bitmap android:src="@mipmap/ic_launcher" android:gravity="center"/></item></layer-list>
+
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/black" />
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@android:drawable/sym_def_app_icon" />
+    </item>
+</layer-list>
