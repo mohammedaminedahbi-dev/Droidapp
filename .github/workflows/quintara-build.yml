@@ -1,7 +1,9 @@
 name: Build Quintara APK
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - quintara-update
 
 permissions:
   contents: read
@@ -15,12 +17,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract Quintara update
-        run: |
-          unzip -q Quintara-1.1.0-source-update.zip -d /tmp/quintara-update
+        run: unzip -q Quintara-1.1.0-source-update.zip -d /tmp/quintara-update
 
       - name: Apply Quintara update
-        run: |
-          python /tmp/quintara-update/apply_quintara_update.py
+        run: python /tmp/quintara-update/apply_quintara_update.py
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
