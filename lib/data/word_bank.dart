@@ -15,7 +15,7 @@ const levelWords = <String>[
   'THINK','UPPER','VENOM','WORTH','YIELD','ZONED','ALERT','BLOOM','CROWN','DOUBT'
 ];
 
-const extraWords = <String>{
+final extraWords = <String>{
   'ABOUT','ACTOR','ADAPT','ADMIT','ADULT','AFTER','AGENT','AGREE','AHEAD','ALARM',
   'ALBUM','ALERT','ALIEN','ALIGN','ALIVE','ALLOW','ALONE','ALONG','ALTER','AMONG',
   'ANGER','ANGLE','ANGRY','APART','ARENA','ARGUE','ARISE','ARMOR','ARRAY','ASIDE',
